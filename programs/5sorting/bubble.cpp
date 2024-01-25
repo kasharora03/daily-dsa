@@ -37,7 +37,16 @@ void bvector(vector<int>& arr, int n)
         }
     }
 }
-
+// recursive approach
+void bbrev(vector<int>& arr, int n){
+    if(n==1)
+    return;
+    for(int j=0;j<=n-2;j++){
+        if(arr[j]>arr[j+1])
+        swap(arr[j],arr[j+1]);
+    }
+    bbrev(arr,n-1);
+}
 int main() {
     int n;
     cout<<"Enter the number of elements: ";
