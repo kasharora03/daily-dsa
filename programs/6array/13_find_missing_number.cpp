@@ -15,7 +15,6 @@ int brutemethod(int arr[], int n) {
     }
     return i;
 }
-
 int better(int a[], int n) {
     int hash[n + 1] = {0};
     for (int i = 0; i < n; i++) {
