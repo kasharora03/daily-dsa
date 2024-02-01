@@ -40,7 +40,7 @@ void better(int arr[], int n)
         cout << arr[j] << " ";
     }
 }
-//DUTCH NATIONAL FLAG ALGORITHM
+//DUTCH NATIONAL FLAG ALGORITHM_________________________________________________________________
 // evrything from 0to low-1 will be 0(extreme left)
 // low to mid -1 is 1
 // mid to high contains random numbers (0,1,2)
