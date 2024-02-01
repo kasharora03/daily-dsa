@@ -21,7 +21,7 @@ vector<int> rotateArray(vector<int>a, int k) {
 
 int main()
 {
-    vector <int> v={1,2,3,4,5,6};
+    vector <int> v={1,2,3,4,5,6}; 
     int k;
     cout<<"enter places to shift";
     cin>>k;
@@ -32,3 +32,4 @@ int main()
     }
     return 0;
 }
+// total leng=10

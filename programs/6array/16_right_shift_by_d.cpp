@@ -3,7 +3,10 @@ using namespace std;
 void rshift(int a[],int n,int d){
     int temp[n];
     int k = 0;
-    
+    // n=5
+    // 12345
+    // d=3 
+    // 34512
     for (int i = n - d; i < n; i++) {
         temp[k] = a[i];
         // cout<<temp[k]<<endl;

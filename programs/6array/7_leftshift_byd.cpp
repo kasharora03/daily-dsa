@@ -4,6 +4,7 @@ using namespace std;
 void shift(int a[],int n,int d){
     int temp[n];
     int k=0;
+    // 3 12345 45123        45123
     // shifted values
     for(int i=d;i<n;i++){
         temp[k]=a[i];
@@ -18,7 +19,6 @@ void shift(int a[],int n,int d){
     for(int i=0;i<n;i++){
         a[i]=temp[i];
     }
-    
 }
 int main()
 {
