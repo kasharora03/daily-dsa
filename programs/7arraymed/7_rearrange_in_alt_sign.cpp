@@ -13,7 +13,7 @@ vector <int> altbrute(vector <int> v,int n){
             pos.push_back(v[i]);
         }
     }
-    for(int i=0;i<n;i++){
+    for(int i=0;i<n/2;i++){
         v[2*i]=pos[i];
         v[2*i+1]=neg[i];
     }
