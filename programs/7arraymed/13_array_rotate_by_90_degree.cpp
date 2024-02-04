@@ -2,7 +2,8 @@
 #include <vector>
 using namespace std;
 vector<vector<int>> idea(vector<vector<int>>& matrix, int n, int m) {
-    vector<vector<int>> temp(m, vector<int>(n, 0));     //impppppppppppppp
+    vector<vector<int>> temp(m, vector<int>(n, 0));     
+    //impppppppppppppp
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
             temp[j][n - i - 1] = matrix[i][j];
