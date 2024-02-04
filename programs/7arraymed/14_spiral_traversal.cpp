@@ -1,49 +1,51 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-void printSpiral(vector<vector<int>> &Matrix)
-{
+vector<int> spiralMatrix(vector<vector<int>>& Matrix) {
+    vector<int> ans;
     int startRow = 0;
     int endRow = Matrix.size() - 1;
     int startCol = 0;
     int endCol = Matrix[0].size() - 1;
-
-    while (startRow <= endRow && startCol <= endCol)
-    {
+    while (startRow <= endRow && startCol <= endCol) {
         // Top
-        for (int j = startCol; j <= endCol; j++)
-        {
-            cout << Matrix[startRow][j] << " ";
-        }
-        // Right
-        for (int j = startRow + 1; j <= endRow; j++)
-        {
-            cout << Matrix[j][endCol] << " ";
-        }
-        // Bottom
-        for (int j = endCol - 1; j >= startCol; j--)
-        {
-            cout << Matrix[endRow][j] << " ";
-        }
-        // Left
-        for (int j = endRow - 1; j >= startRow + 1; j--)
-        {
-            cout << Matrix[j][startCol] << " ";
+        for (int j = startCol; j <= endCol; j++) {
+            ans.push_back(Matrix[startRow][j]);
         }
         startRow++;
-        startCol++;
+        // Right
+        for (int j = startRow; j <= endRow; j++) {
+            ans.push_back(Matrix[j][endCol]);
+        }
         endCol--;
-        endRow--;
+        // Bottom
+        if (startRow <= endRow) {  
+            // Check if there are rows left i.e top has not exceeded bottom
+            for (int j = endCol; j >= startCol; j--) {
+                ans.push_back(Matrix[endRow][j]);
+            }
+            endRow--;
+        }
+        // Left
+        if (startCol <= endCol) {  
+            // Check if there are columns left ie , right has not reached left
+            for (int j = endRow; j >= startRow; j--) {
+                ans.push_back(Matrix[j][startCol]);
+            }
+            startCol++;
+        }
     }
-    cout << endl;
+    return ans;
 }
-
 int main()
 {
     vector<vector<int>> Matrix = {
         {1, 2, 3},
         {4, 5, 6},
         {7, 8, 9}};
-    printSpiral(Matrix);
+    vector<int> ans=spiralMatrix(Matrix);
+    for(auto  i:ans){
+        cout<<i<<" ";
+    }
     return 0;
 }
