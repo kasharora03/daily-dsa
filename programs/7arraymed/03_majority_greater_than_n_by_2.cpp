@@ -43,6 +43,7 @@ int optimal(vector <int>a,int n){
         else{cnt--;
         }
     }
+    // to count freq of el that is highest occ ele through moree's voting algorithm
     int cnt1=0;
     for(int i=0;i<n;i++){
         if(a[i]==el){
