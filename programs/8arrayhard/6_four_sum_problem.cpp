@@ -56,7 +56,7 @@ vector<vector<int>> better(vector<int> &nums, int target)
     vector<vector<int>> ans(s.begin(), s.end());
     return ans;
 }
-vector<vector<int>> fourSum(vector<int>& nums, int target) {
+vector<vector<int>> optimal(vector<int>& nums, int target) {
         int n = nums.size();
         vector<vector<int>> s;
         sort(nums.begin(), nums.end());
