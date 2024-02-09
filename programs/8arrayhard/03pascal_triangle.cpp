@@ -3,14 +3,17 @@
 using namespace std;
 vector <int> eachrow(int rownumber){
     long long ans=1;
-    vector<int> eachrow;
-    eachrow.push_back(1);
+    vector<int> row;
+    row.push_back(1);
     for(int column=1;column<rownumber;column++){
+        cout<<ans<<column<<rownumber<<endl;
         ans=ans*(rownumber-column);
+        // cout<<"after *"<<ans<<endl;
         ans=ans/column;
-        eachrow.push_back(ans);
+        // cout<<"after /"<<ans<<endl;
+        row.push_back(ans);
     }
-    return eachrow;
+    return row;
 }
 vector<vector<int>> pascalTriangle(int n) {
     vector<vector<int>> triangle;
@@ -20,11 +23,11 @@ vector<vector<int>> pascalTriangle(int n) {
     return triangle;
 }
 int main(){
-    vector<vector<int>> tri=pascalTriangle(5);
+    vector<vector<int>> tri=pascalTriangle(6);
     cout<<"Pascal Triangle is : \n"<<endl;
-    for(auto row:tri){
-        for(auto col:row){
-            cout<<col<<" ";
+    for(auto it:tri){
+        for(auto el:it){
+            cout<<el<<" ";
         }
         cout<<endl;
     }
