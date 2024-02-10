@@ -21,7 +21,7 @@ int brute(vector<int> &arr, int k)
     }
     return cnt;
 }
-int subarraysWithSumK(vector < int > arr, int k) {
+int optimal(vector < int > arr, int k) {
     int n=arr.size();
     int xr=0;
     map<int,int> mp;
