@@ -72,7 +72,7 @@ vector <vector<int>> optimal(int n,vector <int> &nums){
 }
 int main(){
     vector<int> num={1,1,-2,-1,-1,-4,0,2};
-    vector<vector<int>>ans=better(num.size(),num);
+    vector<vector<int>>ans=optimal(num.size(),num);
     for(auto row:ans){
         for(auto col:row){
             cout<<col<<" ";

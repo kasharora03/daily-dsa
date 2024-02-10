@@ -28,7 +28,6 @@ vector<vector<int>> better(int n, vector<int> &nums)
     vector<vector<int>> ans(s.begin(), s.end());
     return ans;
 }
-#include <bits/stdc++.h>
 vector<vector<int>> better(vector<int> &nums, int target)
 {
     int n = nums.size();
@@ -56,44 +55,57 @@ vector<vector<int>> better(vector<int> &nums, int target)
     vector<vector<int>> ans(s.begin(), s.end());
     return ans;
 }
-vector<vector<int>> optimal(vector<int>& nums, int target) {
-        int n = nums.size();
-        vector<vector<int>> s;
-        sort(nums.begin(), nums.end());
-        
-        for (int i = 0; i < n; i++) {
-            if (i > 0 && nums[i] == nums[i - 1])
+vector<vector<int>> optimal(vector<int> &nums, int target)
+{
+    int n = nums.size();
+    vector<vector<int>> s;
+    sort(nums.begin(), nums.end());
+
+    for (int i = 0; i < n; i++)
+    {
+        if (i > 0 && nums[i] == nums[i - 1])
+            continue;
+
+        for (int j = i + 1; j < n; j++)
+        {
+            if (j > i + 1 && nums[j] == nums[j - 1])
                 continue;
-            
-            for (int j = i + 1; j < n; j++) {
-                if (j > i + 1 && nums[j] == nums[j - 1])
-                    continue;
-                
-                int k = j + 1;
-                int l = n - 1;
-                
-                while (k < l) {
-                    long long sum = nums[i] + nums[j] + nums[k] + nums[l];
-                    
-                    if (sum == target) {
-                        vector<int> temp = {nums[i], nums[j], nums[k], nums[l]};
-                        s.push_back(temp);
+
+            int k = j + 1;
+            int l = n - 1;
+
+            while (k < l)
+            {
+                // mandatory to give like this to avaoid frun time error
+                long long sum = nums[i] + nums[j];
+                sum = sum + nums[k];
+                sum = sum + nums[l];
+
+                if (sum == target)
+                {
+                    vector<int> temp = {nums[i], nums[j], nums[k], nums[l]};
+                    s.push_back(temp);
+                    k++;
+                    l--;
+
+                    while (k < l && nums[k] == nums[k - 1])
                         k++;
+                    while (k < l && nums[l] == nums[l + 1])
                         l--;
-                        
-                        while (k < l && nums[k] == nums[k - 1]) k++;
-                        while (k < l && nums[l] == nums[l + 1]) l--;
-                    } else if (sum < target) {
-                        k++;
-                    } else {
-                        l--;
-                    }
+                }
+                else if (sum < target)
+                {
+                    k++;
+                }
+                else
+                {
+                    l--;
                 }
             }
         }
-        
-        return s;
     }
+    return s;
+}
 int main()
 {
     vector<int> nums = {1, 1, -2, -1, -1, -4, 0, 2};
