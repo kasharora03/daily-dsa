@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include<bits/stdc++.h> 
 using namespace std;
 
 void brute(vector<long long> &a, vector<long long> &b) {
@@ -38,45 +40,60 @@ void brute(vector<long long> &a, vector<long long> &b) {
     }
 }
 // with pusback functionality
-// void brute(vector<long long> &a, vector<long long> &b) {
-//     int n = a.size();
-//     int m = b.size();
-//     vector<vector<long long>> c(n + m, vector<long long>());
+void brute2(vector<long long> &a, vector<long long> &b) {
+    int n = a.size();
+    int m = b.size();
+    vector<vector<long long>> c(n + m, vector<long long>());
 
-//     int left = 0;
-//     int right = 0;
-//     int i = 0;
+    int left = 0;
+    int right = 0;
+    int i = 0;
 
-//     while (left < n && right < m) {
-//         if (a[left] < b[right]) {
-//             c[i].push_back(a[left]);
-//             left++, i++;
-//         } else {
-//             c[i].push_back(b[right]);
-//             right++, i++;
-//         }
-//     }
+    while (left < n && right < m) {
+        if (a[left] < b[right]) {
+            c[i].push_back(a[left]);
+            left++, i++;
+        } else {
+            c[i].push_back(b[right]);
+            right++, i++;
+        }
+    }
 
-//     while (left < n) {
-//         c[i].push_back(a[left++]);
-//         i++;
-//     }
+    while (left < n) {
+        c[i].push_back(a[left++]);
+        i++;
+    }
 
-//     while (right < m) {
-//         c[i].push_back(b[right++]);
-//         i++;
-//     }
+    while (right < m) {
+        c[i].push_back(b[right++]);
+        i++;
+    }
 
-//     for (int i = 0; i < n + m; i++) {
-//         if (i < n) {
-//             a[i] = c[i][0];
-//         } else {
-//             b[i - n] = c[i][0];
-//         }
-//     }
-// }
-void brute(vector<long long> &a, vector<long long> &b) {
-    
+    for (int i = 0; i < n + m; i++) {
+        if (i < n) {
+            a[i] = c[i][0];
+        } else {
+            b[i - n] = c[i][0];
+        }
+    }
+}
+void better(vector<long long> &a, vector<long long> &b) {
+    int n = a.size();
+    int m = b.size();
+    int left=n-1;
+    int right=0;
+    while(left>=0 && right<m){
+        if(a[left]>b[right]){
+            swap(a[left],b[right]);
+            left--;
+            right++;
+        }
+        else{
+            break;
+        }
+    }
+    sort(a.begin(),a.end());
+    sort(b.begin(),b.end());
 }
 int main() {
     vector<long long> a = {1, 4, 8, 10};
