@@ -9,7 +9,6 @@ using namespace std;
   
   // Segregate the array into positives and negatives.
   for(int i=0;i<n;i++){
-      
       if(A[i]>0) pos.push_back(A[i]);
       else neg.push_back(A[i]);
   }
