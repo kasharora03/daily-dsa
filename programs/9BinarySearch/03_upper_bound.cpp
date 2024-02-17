@@ -27,6 +27,6 @@ int stlway(vector<int> arr, int target){
 }
 int main(){
     vector <int> arr={1,2,3,4,5,7};
-    cout<<"Lower Bound: "<<upperbound(arr,6,3)<<endl; // Outputs 3
+    cout<<"Lower Bound: "<<upperbound(arr,6,3)<<endl; 
     cout<<stlway(arr,3);
 }
