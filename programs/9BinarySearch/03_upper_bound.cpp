@@ -3,9 +3,10 @@ using namespace std;
 int upperbound(vector<int> a, int n, int target)
 {
     // tc=o(log2 n)
-    int ind = n;
+
     int low = 0;
     int high = n - 1;
+    int ind = n;
     while (low <= high)
     {
         int mid = (low + high) / 2;
