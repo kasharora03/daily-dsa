@@ -12,7 +12,7 @@ int lowerbound(vector<int> a, int n, int target)
         if (a[mid] >= target)
         {
             ind = mid;
-            high = mid = 1;
+            high = mid - 1;
         }
         else
         {

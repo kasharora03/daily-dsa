@@ -22,11 +22,11 @@ int upperbound(vector<int> a, int n, int target)
     return ind;
 }
 int stlway(vector<int> arr, int target){
-    int lb=upper_bound(arr.begin(),arr.end(),target)-arr.begin();
-    return lb;
+    int ub=upper_bound(arr.begin(),arr.end(),target)-arr.begin();
+    return ub;
 }
 int main(){
     vector <int> arr={1,2,3,4,5,7};
-    cout<<"Lower Bound: "<<upperbound(arr,6,3)<<endl; 
+    cout<<"Upper Bound: "<<upperbound(arr,6,3)<<endl; 
     cout<<stlway(arr,3);
 }
