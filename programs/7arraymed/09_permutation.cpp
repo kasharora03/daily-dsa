@@ -18,6 +18,7 @@ vector<int> better(vector<int> &a) {
     }
 }
 vector <int>optimal(vector<int> &a){
+    // 215430
     int ind=-1;
     int n=a.size();
     for(int i=n-2;i>=0;i--){
@@ -31,6 +32,7 @@ vector <int>optimal(vector<int> &a){
         return a;
     }
     for(int i=n-1;i>ind;i--){
+        // 215430   3<1 235410  230145
         if(a[i]>a[ind]){
             swap(a[i],a[ind]);
             break;
@@ -42,7 +44,7 @@ vector <int>optimal(vector<int> &a){
 }
 int main() {
     // tc=0(3n) 2 for loop 1 reverse
-    vector<int> a = {3,2,1,2};
+    vector<int> a = {2,1,5,4,3,0};
     cout << "bettermethod\n";
     vector<int> bettersol = optimal(a);
     for (auto it : bettersol) {
