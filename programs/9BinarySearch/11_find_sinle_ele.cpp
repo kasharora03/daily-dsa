@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-int singleNonDuplicate(vector<int>& arr)
+int brute(vector<int>& arr)
 {
 	int n = arr.size();
     int ans = -1;
@@ -21,9 +21,9 @@ int singleNonDuplicate(vector<int>& arr)
     }
     return ans;
 }
-int brute(vector<int> a){
+int better(vector<int> a){
     int n=a.size();
-    if(n==1)return ;
+    if(n==1)return a[0];
     for(int i=0;i<n;i++){
         if(i==0){
             if(a[i]!=a[i+1]){
@@ -68,7 +68,7 @@ int optimal(vector<int> a){
     return -1;
 }
 int main(){
-    vector <int> a={1,1,2,2,3,4,4,5,5};
+    vector <int> a={1,1,2,2,3,4,4};
     int res=optimal(a);
     cout<<res;
 }
