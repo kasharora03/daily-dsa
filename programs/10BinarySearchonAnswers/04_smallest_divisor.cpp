@@ -48,6 +48,7 @@ int maxii(vector<int>& arr){
 }
 int smallestDivisor(vector<int>& arr, int limit)
 {
+    // tc=log2(max)*n
     int n=arr.size();
 	if(n>limit){
         return -1;
