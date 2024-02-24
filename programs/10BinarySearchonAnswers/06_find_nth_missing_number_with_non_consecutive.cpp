@@ -29,7 +29,7 @@ int missingK(vector < int > vec, int n, int k) {
 int main()
 {
     vector<int> vec = {2,3,8};
-    int n = 3, k = 1;
+    int n = 3, k = 3;
     int ans = missingK(vec, n, k);
     cout << "The missing number is: " << ans << "\n";
     return 0;
