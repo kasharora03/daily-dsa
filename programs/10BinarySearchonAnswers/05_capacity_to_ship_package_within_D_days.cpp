@@ -14,7 +14,7 @@ int finddays(vector <int> &weight,int capacity){
     }
     return days;
 }
-int leastdays(vector<int> weight,int days){
+int binarybetter(vector<int> weight,int days){
     int low=*max_element(weight.begin(),weight.end());
     int high=accumulate(weight.begin(),weight.end(),0);
     while(low<=high){
@@ -48,7 +48,7 @@ int findDays(vector<int> &weights, int cap) {
     return days;
 }
 
-int leastWeightCapacity(vector<int> &weights, int d) {
+int brute(vector<int> &weights, int d) {
     //Find the maximum and the summation:
     int maxi = *max_element(weights.begin(), weights.end());
     int sum = accumulate(weights.begin(), weights.end(), 0);
@@ -66,7 +66,7 @@ int main()
 {
     vector<int> weights = {5, 4, 5, 2, 3, 4, 5, 6};
     int d = 5;
-    int ans = leastWeightCapacity(weights, d);
+    int ans = brute(weights, d);
     cout << "The minimum capacity should be: " << ans << "\n";
     return 0;
 }

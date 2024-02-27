@@ -1,0 +1,55 @@
+#include <bits/stdc++.h>
+using namespace std;
+int countPainters(vector<int> &boards, int time) {
+    int n = boards.size(); //size of array.
+    int painters = 1;
+    long long boardsPainter = 0;
+    for (int i = 0; i < n; i++) {
+        if (boardsPainter + boards[i] <= time) {
+            //allocate board to current painter
+            boardsPainter += boards[i];
+        }
+        else {
+            //allocate board to next painter
+            painters++;
+            boardsPainter = boards[i];
+        }
+    }
+    return painters;
+}
+int brute(vector<int> &boards, int noofpainters) {
+    int low = *max_element(boards.begin(), boards.end());
+    int high = accumulate(boards.begin(), boards.end(), 0);
+
+    for (int time = low; time <= high; time++) {
+        if (countPainters(boards, time) <= noofpainters) {
+            return time;
+        }
+    }
+    return low;
+}
+int better(vector<int> &boards, int k) {
+    int low = *max_element(boards.begin(), boards.end());
+    int high = accumulate(boards.begin(), boards.end(), 0);
+    //Apply binary search:
+    while (low <= high) {
+        int mid = (low + high) / 2;
+        int painters = countPainters(boards, mid);
+        if (painters > k) {
+            low = mid + 1;
+        }
+        else {
+            high = mid - 1;
+        }
+    }
+    return low;
+}
+int main()
+{
+    vector<int> boards = {10, 20, 30, 40};
+    int noofpainters = 2;
+    int ans = better(boards, noofpainters);
+    cout << "The answer is: " << ans << "\n";
+    return 0;
+}
+
