@@ -1,9 +1,5 @@
-
-
-
 #include <bits/stdc++.h>
 using namespace std;
-
 int countPartitions(vector<int> &a, int maxSum) {
     int n = a.size(); //size of array.
     int partitions = 1;
